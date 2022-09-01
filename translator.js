@@ -1,8 +1,7 @@
-const fs = require('fs');
+let test = "123456789";
 
-try {
-  const data = fs.readFileSync('./test.txt', 'utf8');
-  console.log(data);
-} catch (err) {
-  console.error(err);
-}
+
+
+console.log(test.slice(-6))
+
+

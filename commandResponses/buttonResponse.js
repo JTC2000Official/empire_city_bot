@@ -6,7 +6,44 @@ function stdWhitelist(interaction){
 }
 
 function writtenWhitelist(interaction){
-    console.log("TEST2")
+    const modal = new ModalBuilder()
+        .setCustomId("whitelist")
+        .setTitle("Opret whitelist ansøgning")
+    
+    const name = new TextInputBuilder()
+        .setLabel("In-Game Navn")
+        .setCustomId("name")
+        .setStyle(TextInputStyle.Short);
+
+    const age = new TextInputBuilder()
+        .setLabel("In-Game Alder")
+        .setCustomId("age")
+        .setStyle(TextInputStyle.Short);
+
+    const realAge = new TextInputBuilder()
+        .setLabel("Rigtige alder")
+        .setCustomId("realAge")
+        .setStyle(TextInputStyle.Short);
+
+    const playtime = new TextInputBuilder()
+        .setLabel("Antal timer i FiveM")
+        .setCustomId("playtime")
+        .setStyle(TextInputStyle.Short);
+
+    const descript = new TextInputBuilder()
+        .setLabel("Beskrivelse af karakter")
+        .setCustomId("desc")
+        .setStyle(TextInputStyle.Paragraph);
+
+    const rname = new ActionRowBuilder().addComponents(name);
+    const rage = new ActionRowBuilder().addComponents(age);
+    const rrealAge = new ActionRowBuilder().addComponents(realAge);
+    const rplaytime = new ActionRowBuilder().addComponents(playtime);
+    const rdescript = new ActionRowBuilder().addComponents(descript);
+
+    modal.addComponents(rname, rage, rrealAge, rplaytime, rdescript);
+    interaction.showModal(modal);
+    return;
 }
 
 function support(interaction){
@@ -34,7 +71,7 @@ function support(interaction){
     const description_row = new ActionRowBuilder().addComponents(description);
 
     modal.addComponents(title_row, id_row, description_row);
-    interaction.showModal(modal)
+    interaction.showModal(modal);
  
     return;
 }

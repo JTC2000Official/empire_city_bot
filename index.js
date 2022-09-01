@@ -2,7 +2,9 @@ const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, ".env")})
 const { Client, GatewayIntentBits } = require('discord.js');
 const { welcome, support, applications, notify } = require("./commandResponses/embeds.js");
+const { ticketForm } = require("./commandResponses/modalResponse.js")
 const btn = require("./commandResponses/buttonResponse.js");
+const {  } = require("./backend/channelCreator.js")
 const config = require("./config.json");
 
 
@@ -65,31 +67,16 @@ client.on("interactionCreate", async (interaction) => {
                 await btn.writtenWhitelist(interaction);
                 return;
             }
+
+            default : console.log("TEST")
         }
     }
 
     if(interaction.isModalSubmit()){
         switch(interaction.customId){
             case "ticketForm" : {
-                let input = interaction.fields;
-                let title = input.getTextInputValue("title");
-                let user_id = input.getTextInputValue("userID");
-                let description = input.getTextInputValue("ticket_description");
-                
-                let arr = [];
-                let channel = interaction.client.guilds.channels;
-
-                for(const channel of channel.values()){
-                    arr.push(channel.id)
-                    console.log(channel.id)
-                }
-                
-                let cat = interaction.member.guild
-                console.log(cat)
-
-
                 interaction.guild.channels.create({
-                    name: "ticket",
+                    name: "placeholder",
                     type: 0,
                     permissionOverwrites: [{
                         id: interaction.user.id,
@@ -113,10 +100,14 @@ client.on("interactionCreate", async (interaction) => {
                         ]
                     }
                 ]
-
+                }).then((result)=>{
+                    ticketForm(interaction, result.id);
+                    return interaction.reply({ content: `Ticket oprettet <#${result.id}>`, ephemeral: true });
                 });
                 
-                return interaction.reply({ content: `Ticket oprettet <#${"ticket"}>`, ephemeral: true })
+                
+                
+                
             }
         }
     }

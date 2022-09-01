@@ -25,7 +25,7 @@ let welcome = {
                 "style": 3,
                 "label": `Opret tid til mundtlig ansøgning`,
                 "custom_id": `stdWhitelist`,
-                "disabled": false,
+                "disabled": true,
                 "emoji": {
                 "id": null,
                 "name": `💬`
