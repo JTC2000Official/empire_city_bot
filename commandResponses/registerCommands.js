@@ -44,7 +44,7 @@ const rest = new REST().setToken(process.env.TOKEN);
   try {
     console.log('Started refreshing application (/) commands.');
 
-    await rest.put(Routes.applicationCommands("986014606889730078"), { body: commands });
+    await rest.put(Routes.applicationCommands(process.env.APPID), { body: commands });
 
     console.log('Successfully reloaded application (/) commands.');
   } catch (error) {
