@@ -7,10 +7,10 @@
         "EMS"       : false,
         "lawyer"    : true
     },
-    "notifyID" : "1009443115385503784", //Insert Discord ID for given role
-    "serverStatus" : null, //Meant to show current status for given server, not implemented yet
-    "teamStream" : "1009437495458549811", //Insert Discord ID for given role
-    "teamNews" : "1009437676165939283", //Insert Discord ID for given role
-    "supportTeam" : "920707020284395630", //Insert Discord ID for given role
-    "supportCategory" : "1009814107232419941" //Insert Discord ID for given role
+    "notifyID" : "1009443115385503784", 
+    "serverStatus" : null, 
+    "teamStream" : "1009437495458549811", 
+    "teamNews" : "1009437676165939283", 
+    "supportTeam" : "920707020284395630", 
+    "supportCategory" : "1009814107232419941" 
 }
